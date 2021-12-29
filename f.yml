@@ -2,7 +2,8 @@ service:
   name: midway-aggr
 
 provider:
-  name: aliyun
+  name: tencent
+  runtime: nodejs12
 
 aggregation:
   all:
