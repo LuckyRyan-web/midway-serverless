@@ -13,17 +13,12 @@
     "skipLibCheck": true,
     "pretty": true,
     "declaration": true,
+    "esModuleInterop": true,
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    },
-    "typeRoots": ["./typings"],
-    "types": ["node", "jest"]
+    }
   },
-  "include": [
-    "src",
-    "typings"
-  ],
   "exclude": ["./dist", "node_modules"]
 }
