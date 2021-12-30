@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=local midway-bin dev --ts",
     "test": "cross-env midway-bin test --ts",
+    "build": "midway-bin build -c",
     "deploy": "cross-env UDEV_NODE_ENV=production midway-bin deploy",
     "lint": "mwts check",
     "lint:fix": "mwts fix"
@@ -34,5 +35,13 @@
     "mwts": "^1.0.5",
     "ts-jest": "^26.2.0",
     "typescript": "^4.0.0"
+  },
+  "optionalDependencies": {
+    "@midwayjs/fcli-plugin-scf": "^1.2.93"
+  },
+  "midway-bin-build": {
+    "include": [
+        "typings/**/*.ts"
+    ]
   }
 }

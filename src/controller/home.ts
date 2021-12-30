@@ -34,7 +34,7 @@ export class HomeService {
   }
 
   @Get('/getServer')
-  async getServer(@Query() uid: string): Promise<API.HomeServerResponse> {
+  async getServer(@Query() uid: string): Promise<APIHome.HomeServerResponse> {
     const users = await this.useServer.getUser({
       uid,
     });

@@ -2,7 +2,7 @@ import { Provide } from '@midwayjs/decorator';
 
 @Provide()
 export class UserService {
-  async getUser(options: API.HomeServerInputOptions) {
+  async getUser(options: APIHome.HomeServerInputOptions) {
     return {
       uid: options.uid,
       username: 'mockedName',
