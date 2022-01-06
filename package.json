@@ -10,10 +10,13 @@
         "midway"
     ],
     "scripts": {
+        "start": "egg-scripts start --title=midway-article-manage --framework=midway --ts --port=9000",
+        "stop": "egg-scripts stop --title=midway-article-manage",
         "dev": "cross-env NODE_ENV=local midway-bin dev --ts",
         "test": "cross-env midway-bin test --ts",
-        "build:local": "midway-bin build -c",
+        "build": "midway-bin build -c",
         "deploy": "cross-env UDEV_NODE_ENV=production midway-bin deploy",
+        "deploy:debug": "cross-env UDEV_NODE_ENV=production midway-bin deploy --resetConfig",
         "lint": "mwts check",
         "lint:fix": "mwts fix"
     },
@@ -21,7 +24,13 @@
         "@midwayjs/core": "^2.3.0",
         "@midwayjs/decorator": "^2.3.0",
         "@midwayjs/faas": "^2.3.0",
-        "tsconfig-paths": "^3.12.0"
+        "@midwayjs/orm": "^2.14.0",
+        "dotenv": "^10.0.0",
+        "egg-scripts": "^2.15.2",
+        "midway": "^2.14.2",
+        "mongodb": "^3.6.11",
+        "tsconfig-paths": "^3.12.0",
+        "typeorm": "^0.2.41"
     },
     "devDependencies": {
         "@midwayjs/cli": "^1.2.45",
