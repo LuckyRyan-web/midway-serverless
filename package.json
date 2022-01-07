@@ -18,7 +18,8 @@
         "deploy": "cross-env UDEV_NODE_ENV=production midway-bin deploy",
         "deploy:debug": "cross-env UDEV_NODE_ENV=production midway-bin deploy --resetConfig",
         "lint": "mwts check",
-        "lint:fix": "mwts fix"
+        "lint:fix": "mwts fix",
+        "dev:dtpl": "tsc -P .dtpl/tsconfig.json -w"
     },
     "dependencies": {
         "@midwayjs/core": "^2.3.0",
@@ -42,6 +43,7 @@
         "@types/jest": "^26.0.10",
         "@types/node": "14",
         "cross-env": "^6.0.0",
+        "dot-template-types": "^0.3.0",
         "jest": "^26.4.0",
         "mwts": "^1.0.5",
         "ts-jest": "^26.2.0",

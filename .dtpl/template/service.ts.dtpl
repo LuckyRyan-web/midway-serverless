@@ -1,0 +1,12 @@
+/**
+ * ${ModuleName}
+ * @author $user
+ * @date $datetime
+ * @since ${pkg.version}}
+ */
+import { Provide } from '@midwayjs/decorator'
+
+@Provide()
+export class ${ModuleName}Service {
+
+}

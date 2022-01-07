@@ -1,13 +1,13 @@
 import { createConnection, ConnectionOptions } from 'typeorm'
 
-export default async (app: MidwayConfig.Config) => {
-    const config = app.typeorm as ConnectionOptions & { host: string }
+export default async (appConfig: MidwayConfig.Config) => {
+    const config = appConfig.typeorm as ConnectionOptions & { host: string }
 
     if (config && config.host) {
         const connection = await createConnection(config)
 
-        app.typeorm = connection
+        appConfig.typeorm = connection
     }
 
-    return app
+    return appConfig
 }

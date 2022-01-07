@@ -1,0 +1,23 @@
+/**
+ * ${ModuleName} 
+ * @author $user
+ * @date $datetime
+ * @since ${pkg.version}
+ */
+import { Provide, Inject, Controller, Get } from '@midwayjs/decorator'
+import { Context } from '@midwayjs/faas'
+
+@Provide()
+@Controller('/${ModuleName}',  {
+    description: '${ModuleName}',
+    middleware: [],
+})
+export class Api${ModuleName}Controller {
+    @Inject()
+    ctx: Context
+
+    @Get('/')
+    async Index() {
+        return 'Hello Midwayjs'
+    }
+}

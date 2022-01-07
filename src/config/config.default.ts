@@ -15,7 +15,7 @@ export default (appInfo: EggAppInfo) => {
         database: process.env.MONGODB_DATABASE,
         username: process.env.MONGODB_NAME,
         password: process.env.MONGODB_PWD,
-        entities: [join(appInfo.baseDir, 'app/typeorm/entity/*{.ts,.js}')],
+        entities: [join(appInfo.baseDir, 'typeorm/entity/*{.ts,.js}')],
         synchronize: true,
         useNewUrlParser: true,
         useUnifiedTopology: true,
