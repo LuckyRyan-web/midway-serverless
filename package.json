@@ -15,8 +15,8 @@
         "dev": "cross-env NODE_ENV=local midway-bin dev --ts",
         "test": "cross-env midway-bin test --ts",
         "build": "midway-bin build -c",
-        "deploy": "cross-env UDEV_NODE_ENV=production midway-bin deploy",
-        "deploy:debug": "cross-env UDEV_NODE_ENV=production midway-bin deploy --resetConfig",
+        "deploy": "cross-env UDEV_NODE_ENV=production midway-bin deploy --npm=cnpm",
+        "deploy:debug": "cross-env UDEV_NODE_ENV=production midway-bin deploy --resetConfig --npm=cnpm",
         "lint": "mwts check",
         "lint:fix": "mwts fix",
         "dev:dtpl": "tsc -P .dtpl/tsconfig.json -w"
