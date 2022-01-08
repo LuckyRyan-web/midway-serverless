@@ -16,9 +16,8 @@ export class ContainerLifeCycle implements ILifeCycle {
     app: Application
 
     async onReady() {
+        // console.log('app', this.app.getEnv())
         const config = this.app.getConfig()
         await typeorm(config)
-
-        console.log('typeorm is connected = ', config.typeorm.isConnected)
     }
 }

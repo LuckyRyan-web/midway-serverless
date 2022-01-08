@@ -26,6 +26,7 @@
         "@midwayjs/decorator": "^2.3.0",
         "@midwayjs/faas": "^2.3.0",
         "@midwayjs/orm": "^2.14.0",
+        "@ryan-liu/wechat-to-markdown": "^1.1.9",
         "dotenv": "^10.0.0",
         "egg-scripts": "^2.15.2",
         "midway": "^2.14.2",
