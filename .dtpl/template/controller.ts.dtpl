@@ -8,9 +8,9 @@ import { Provide, Inject, Controller, Get } from '@midwayjs/decorator'
 import { Context } from '@midwayjs/faas'
 
 @Provide()
-@Controller('/${ModuleName}',  {
+@Controller('/${fileName}', {
     description: '${ModuleName}',
-    middleware: [],
+    middleware: []
 })
 export class Api${ModuleName}Controller {
     @Inject()

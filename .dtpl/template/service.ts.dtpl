@@ -2,7 +2,7 @@
  * ${ModuleName}
  * @author $user
  * @date $datetime
- * @since ${pkg.version}}
+ * @since ${pkg.version}
  */
 import { Provide } from '@midwayjs/decorator'
 
