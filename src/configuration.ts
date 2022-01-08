@@ -1,5 +1,5 @@
 import { App, Configuration } from '@midwayjs/decorator'
-import { ILifeCycle } from '@midwayjs/core'
+import { ILifeCycle, IMidwayContainer } from '@midwayjs/core'
 import { join } from 'path'
 import 'tsconfig-paths/register'
 import typeorm from '@/plugins/typeorm'
@@ -15,7 +15,7 @@ export class ContainerLifeCycle implements ILifeCycle {
     @App()
     app: Application
 
-    async onReady() {
+    async onReady(container: IMidwayContainer) {
         // console.log('app', this.app.getEnv())
         const config = this.app.getConfig()
         await typeorm(config)

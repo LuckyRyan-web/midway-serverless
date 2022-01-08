@@ -11,7 +11,8 @@ import {
     Get,
     Post,
     Body,
-    ALL
+    ALL,
+    Query
 } from '@midwayjs/decorator'
 import { Context } from '@midwayjs/faas'
 import { ArticleService } from '@/service/article'
@@ -29,10 +30,18 @@ export class ApiArticleController {
     @Inject()
     articleServer: ArticleService
 
+    @Get('/list', {
+        description: '分页文章列表'
+    })
+    async getArticleList(@Query(ALL) input: API.ArticleListReq) {
+        console.log('input', input)
+        return this.articleServer.getArticleList(input)
+    }
+
     @Get('/all', {
         description: '获取所有的文章数据'
     })
-    async Index() {
+    async getAllArticle() {
         const data = await this.articleServer.getAllArticle()
 
         return {

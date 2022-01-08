@@ -11,4 +11,13 @@ declare module API {
         description: string
         code: string
     }
+
+    interface ReqPageListBase {
+        page: number
+        page_size: number
+    }
+
+    interface ArticleListReq extends ReqPageListBase {
+        keyword?: string
+    }
 }

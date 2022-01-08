@@ -6,6 +6,8 @@
  */
 import { Provide } from '@midwayjs/decorator'
 import { Article } from '@/typeorm/entity/article.entity'
+import { ObjectLiteral } from 'typeorm'
+import * as _ from 'lodash'
 
 @Provide()
 export class ArticleService {
@@ -21,16 +23,56 @@ export class ArticleService {
     /**
      * 添加文章
      */
-    async saveArticle(options: API.ArticleInput) {
+    async saveArticle(input: API.ArticleInput) {
         const article = new Article()
 
-        article.title = options.title
-        article.author = options.author
-        article.description = options.description
-        article.code = options.code
+        article.title = input.title
+        article.author = input.author
+        article.description = input.description
+        article.code = input.code
 
         article.save()
 
         return true
+    }
+
+    /**
+     * 获取文章数据(分页)
+     */
+    async getArticleList(input: API.ArticleListReq) {
+        const { keyword } = input
+
+        const page = Number(input.page)
+
+        const page_size = Number(input.page_size)
+
+        const where: ObjectLiteral = {}
+
+        if (keyword) {
+            where.title = {
+                $regex: new RegExp(_.escapeRegExp(keyword), 'i')
+            }
+        }
+
+        const [list, total] = await Article.findAndCount({
+            where,
+            skip: (page - 1) * page_size,
+            take: page_size,
+            order: {
+                _id: 'DESC'
+            }
+        })
+
+        return {
+            total,
+            list: list.map((v) => {
+                return {
+                    ...v,
+                    id: v._id.toHexString()
+                }
+            }),
+            page: input.page,
+            page_size: input.page_size
+        }
     }
 }
